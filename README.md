@@ -1,0 +1,1 @@
+A simple weather API project using Webpack, React, and Reactstrap. Very much in progress.
