@@ -1,0 +1,27 @@
+@import '~bootstrap/scss/bootstrap.scss';
+
+body {
+    margin: 3%;
+    background: #fd923e;
+    font: {
+        size: 16px;
+        family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif;
+    }
+    color: white;
+}
+
+
+.headerSearch {
+    display: flex;
+    align-items: center;
+    float: right;
+    Button {
+        margin-left: 0.5em;
+    }
+}
+
+.centerSearch {
+    Button {
+        margin-top: 1em;
+    }
+}
