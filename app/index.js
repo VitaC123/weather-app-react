@@ -1,16 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.scss';
+import './stylesheets/main.scss';
 
-class App extends React.Component {
-    render() {
-        return (
-            <div>
-                <h1>Test</h1>
-            </div>
-        );
-    }
-}
+import App from './components/container/App';
 
 ReactDOM.render(
     <App />,
