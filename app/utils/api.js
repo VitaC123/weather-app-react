@@ -1,7 +1,8 @@
 import axios from 'axios';
+import timestamp from 'unix-timestamp';
 
 module.exports = {
-    setCity: function(city) {
+    setCity: function (city) {
         this.city = city;
         this.getWeather();
     },
@@ -10,8 +11,10 @@ module.exports = {
         var fiveDay = Promise.resolve(this.queryOpenWeatherApi('forecast/daily?q=' + this.city));
         Promise.all([current, fiveDay]).then(function (weatherData) {
             this.current = weatherData[0];
-            this.allTime = weatherData[1];
-            console.log(this.current, this.allTime);
+            this.current.dt = timestamp.toDate(this.current.dt);
+            this.fiveDay = weatherData[1];
+            this.fiveDay.list = this.reformatDates(this.fiveDay.list);
+            console.log("Current", this.current, "fiveDay", this.fiveDay);
         }.bind(this)).catch(this.handleError);
     },
     queryOpenWeatherApi: function (searchString) {
@@ -26,5 +29,11 @@ module.exports = {
     handleError: function (error) {
         console.warn(error);
         return null;
+    },
+    reformatDates: function (arrayOfForecasts) {
+        return arrayOfForecasts.map(function (forecast) {
+            forecast.dt = timestamp.toDate(forecast.dt);
+            return forecast;
+        });
     }
 };

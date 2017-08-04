@@ -30,7 +30,8 @@ class CityInput extends React.Component {
                 <Link
                     className='getWeatherButton'
                     to={{
-                        pathname: '/forecast'
+                        pathname: '/forecast',
+                        search: '?city=' + this.state.city
                     }}
                 >
                     <Button

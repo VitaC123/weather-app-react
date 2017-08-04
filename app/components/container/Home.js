@@ -7,10 +7,10 @@ class Home extends React.Component {
         return (
             <div className='home'>
                 <h1>Enter a City and State</h1>
-                    <CityInput
+                <CityInput
                     layout='centerSearch'
                     btnSize='md'
-                    />
+                />
             </div>
         );
     }

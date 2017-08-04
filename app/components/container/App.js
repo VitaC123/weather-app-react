@@ -18,6 +18,7 @@ class App extends React.Component {
             <Router>
                 <div>
                     <AppHeader />
+                    
                     <Switch>
                         <Route exact path='/' component={Home} />
                         <Route path='/forecast' component={Forecast} />
